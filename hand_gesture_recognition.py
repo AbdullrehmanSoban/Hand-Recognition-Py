@@ -1,30 +1,10 @@
 
-Hand Gesture Recognition Program
-==================================
-Uses OpenCV + cvzone (HandTrackingModule) for gesture detection.
-Works on Python 3.14+
-
-Gestures recognized:
-  - Open Palm
-  - Fist
-  - Thumbs Up
-  - Victory Sign (Peace)
-
-Requirements:
-    pip install opencv-python cvzone
-"""
 
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 
-# ─────────────────────────────────────────────
-# Gesture recognition logic
-# ─────────────────────────────────────────────
 def recognize_gesture(fingers):
-    """
-    fingers = list of 5 values [thumb, index, middle, ring, pinky]
-    1 = finger open/up, 0 = finger closed/down
-    """
+
     thumb, index, middle, ring, pinky = fingers
 
     # Open Palm — all 5 fingers open
@@ -90,9 +70,7 @@ def draw_overlay(frame, gesture, hand_count):
                 (150, 150, 150), 1, cv2.LINE_AA)
 
 
-# ─────────────────────────────────────────────
-# Main loop
-# ─────────────────────────────────────────────
+
 def main():
     cap = cv2.VideoCapture(0)
 
